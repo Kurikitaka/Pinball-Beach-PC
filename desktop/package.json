@@ -1,0 +1,29 @@
+{
+  "name": "pinball-playa",
+  "version": "1.0.0",
+  "description": "Pinball Playa",
+  "author": "Pedro",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.pedro.pinballplaya",
+    "productName": "Pinball Playa",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "www/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "www/img/icon-512.png"
+    },
+    "portable": {
+      "artifactName": "Pinball-Playa.exe"
+    }
+  }
+}

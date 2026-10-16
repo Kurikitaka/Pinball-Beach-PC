@@ -1,0 +1,38 @@
+PINBALL PLAYA
+=============
+Carpetas:
+  www/      el juego (HTML5). Funciona en cualquier navegador, tambien en el telefono.
+  desktop/  envoltorio para crear el programa de Windows (.exe)
+  .github/  recetas para que GitHub fabrique el .exe y el APK por ti (sin instalar nada)
+
+CONTROLES
+  Telefono: manten pulsado el lanzador (abajo a la derecha) y suelta.
+            Toca la mitad izquierda / derecha de la pantalla para los fliperes.
+  Teclado:  Z o flecha izquierda = fliperes izquierdos
+            M o flecha derecha   = fliperes derechos
+            Espacio (mantener y soltar) = lanzar     N = nueva partida     X = sonido
+            F11 = pantalla completa (en el .exe)
+
+PASO 1 - SUBIR TODO A GITHUB (una sola vez)
+  1. Descomprime este zip en tu PC.
+  2. En github.com: boton "+" (arriba) > New repository. Nombre: pinball. Public. Create repository.
+  3. Pulsa "uploading an existing file" y arrastra TODO el contenido de la carpeta descomprimida
+     (www, desktop, .github y los archivos sueltos). Espera a que termine y pulsa "Commit changes".
+     (Si no aparece la carpeta .github: Add file > Create new file, escribe el nombre
+      .github/workflows/exe.yml y pega ahi el contenido del archivo exe.yml.)
+
+PASO 2 - CREAR EL .EXE PARA TU COMPUTADORA
+  1. En tu repositorio: pestana "Actions" > a la izquierda "Crear EXE de Windows" > "Run workflow" > "Run workflow".
+  2. Espera unos minutos (aparece un circulo amarillo y luego una marca verde).
+  3. Abre esa ejecucion, baja hasta "Artifacts" y descarga "Pinball-Playa-exe" (es un zip).
+  4. Descomprimelo: dentro esta Pinball-Playa.exe. No necesita instalacion: doble clic y a jugar.
+     Windows puede mostrar "Windows protegio tu PC" porque el programa no esta firmado:
+     pulsa "Mas informacion" > "Ejecutar de todas formas".
+
+OPCIONAL - VERSION PARA EL TELEFONO (enlace)
+  Settings > Pages > Source: "Deploy from a branch", rama main, carpeta /(root). Guarda.
+  En 1-2 minutos el enlace sera  https://TU-USUARIO.github.io/pinball/www/
+  Abrelo en Chrome del telefono > menu > "Anadir a pantalla de inicio".
+
+OPCIONAL - APK
+  Actions > "Crear APK" > Run workflow. Descarga "pinball-playa-apk". Es un APK de prueba (no para Play Store).
