@@ -1,0 +1,34 @@
+name: Crear EXE de Windows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  exe:
+    runs-on: windows-latest
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Copiar el juego a la carpeta de escritorio
+        shell: pwsh
+        run: Copy-Item -Recurse www desktop/www
+
+      - name: Instalar dependencias
+        working-directory: desktop
+        run: npm install
+
+      - name: Crear el exe
+        working-directory: desktop
+        run: npx electron-builder --win portable --publish never
+
+      - name: Guardar el exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pinball-Playa-exe
+          path: desktop/dist/Pinball-Playa.exe
